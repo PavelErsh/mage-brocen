@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/ersovpavel/Desktop/сломанная игра для студента",
+      "program": "/Users/ersovpavel/Desktop/сломанная игра для студента/build/Debug/outDebug"
+    }
+  ]
+}
