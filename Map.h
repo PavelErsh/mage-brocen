@@ -2,9 +2,10 @@
 #include <SFML/Graphics.hpp>
 
 #include "Mage.h"
+#include "Scroll.h"//���������� ������������ ���� ������ 
 #include "Stone.h"
 
-#include "Scroll.h"//���������� ������������ ���� ������ 
+
 
 using namespace sf;
 
@@ -29,6 +30,7 @@ public:
 	void update();
 
 private:
+	Stone* stone[10];
 	sf::String TileMap[HEIGHT_MAP] = {
 
 		"wwwwwwwwwwwwwwwwwwwww",
@@ -58,7 +60,7 @@ private:
 	};
 
 	Mage* mage;// ��������� �� ������ ���� 
-
+	
 	Scroll* scroll;// ��������� �� ������ ������ 
 
 	Image mapImage;
@@ -66,6 +68,6 @@ private:
 	Texture mapTexture;
 
 	Sprite mapSprite;
-	Stone* stone[10];
+	
 	void init();
 };

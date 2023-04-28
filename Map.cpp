@@ -1,12 +1,5 @@
 #include "Map.h"
-#include <list>
-#include "Stone.cpp"
 
-
-
-Map::Map() {
-	init();
-}
 void Map::init() {
 
 	mapImage.loadFromFile("images/textures.png");//�������� ����� 
@@ -18,18 +11,32 @@ void Map::init() {
 	mage = new Mage();
 
 	scroll = new Scroll(Vector2f(100, 100));//������ ��������� �� ������ ������
-	for (int i = 0; i < 10; i++) { 
-  		float x = i * (WINDOW_WIDTH - 60 )/10 + 60; 
-  		float y = 0; 
-  		stone[i] = new Stone(Vector2f(x, y)); 
- 	}
+
+//10. � ����� ��������� ������ �������, ���������� �� ���������� �� �����
+	for (int i = 0; i < 10; i++)
+	{
+		float x = i * (WINDOW_WIDTH - 60 )/10 + 60;//�������� 60, ����� ����� �� �������� �� �����
+		float y = 0;
+		stone[i] = new Stone(Vector2f(x, y));
+	}
 
 }
+
+Map::Map() {
+
+	init();
+}
+
 void Map::update() {
 
 	mage->update();
+//14. ��������� ������ ������ �� �������
+	for (int i = 0; i < 10; i++)
+	{
+		stone[i]->update();
+	}
 }
-	
+
 Mage* Map::getPlayer() {
 
 	return mage;
@@ -76,4 +83,10 @@ void Map::draw(RenderWindow& window) {
 	window.draw(scroll->getSprite());//��������� ������
 
 	window.draw(mage->getSprite());// ��������� ����
+
+// 12. ������������ ������ ������ �� �������
+	for (int i = 0; i < 10; i++)//��������� ������
+	{
+		window.draw(stone[i]->getSprite());
+	}
 }
