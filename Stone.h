@@ -1,27 +1,31 @@
 #pragma once
+#include "Map.h"
+#include <SFML/Graphics.hpp>
 
-#include <SFML/Graphics.hpp>//подключение sfml 
+using namespace sf;//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ sf 
 
-using namespace sf;//использование пространства имён sf 
+class Stone {//пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ 
 
-class Stone {//класс камня 
+private://пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ 
+	float speedY;
 
-private://приватный блок 
+	Vector2f position;//пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ 
 
-	Vector2f position;//позиция камня 
+	Sprite sprite;//пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 
-	Sprite sprite;//спрайт камня
+	Texture texture;//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 
-	Texture texture;//текстура камня
+	void init();//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ 
+public:
+	void update();
+	void setSpeedY(float speed);
 
-	void init();//начальные значения камня 
+	Stone(Vector2f position);//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ 
 
-	Stone(Vector2f position);//конструктор класса 
+	void setPosition(Vector2f position);// пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 
-	void setPosition(Vector2f position);// задать позицию камня
+	void setTextureRect(IntRect rect);//пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 
-	void setTextureRect(IntRect rect);//задать текстуру камня
-
-	Sprite getSprite();// получить спрайт камня
-
+	Sprite getSprite();// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+	
 };

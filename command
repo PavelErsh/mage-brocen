@@ -1,0 +1,1 @@
+g++ main.cpp Camera.cpp Camera.h Engine.cpp Engine.h KeyPressedAction.cpp KeyPressedAction.h Map.cpp Map.h Scroll.cpp Scroll.h Stone.h Stone.cpp Mage.h Mage.cpp  -o sfml-app -lsfml-graphics -lsfml-window -lsfml-system

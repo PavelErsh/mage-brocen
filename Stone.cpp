@@ -1,42 +1,55 @@
-#include "Stone.h"// подключение заголовочного файла камня 
+#include "Stone.h"
+#include <list>
+Stone::Stone(Vector2f position) {//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ 
 
-Stone::Stone(Vector2f position) {//конструктор класса 
+	init();// пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ 
 
-	init();// метод задающий начальные параметры 
-
-	setPosition(position);//метод задающий позицию 
-
-}
-
-void Stone::init() {// начальные параметры камня
-
-	Image image;//создаем объект изображения камня
-
-	image.loadFromFile("images/stone.png");//загружаем изображение камня
-
-	texture.loadFromImage(image);//загружаем текстуру камня из изображения
-
-	sprite.setTexture(texture);//задаём спрайту текстуру
+	setPosition(position);//пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ 
+	
 
 }
 
-void Stone::setPosition(Vector2f position) {//задать позицию свитка 
+void Stone::init() {// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 
-	this->position = position;// задаём позицию свитка
+	Image image;//пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 
-	sprite.setPosition(position.x, position.y);//задать позицию спрайту
+	image.loadFromFile("images/stone.png");//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+
+	texture.loadFromImage(image);//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+
+	sprite.setTexture(texture);//пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+}
+
+void Stone::setPosition(Vector2f position) {//пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ 
+
+	this->position = position;// пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+
+	sprite.setPosition(position.x, position.y);//пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 
 }
 
-void Stone::setTextureRect(IntRect rect) {//задать текстуру 
+void Stone::setTextureRect(IntRect rect) {//пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ 
 
-	sprite.setTextureRect(rect); //задаём спрайту текстуру
+	sprite.setTextureRect(rect); //пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 
 }
 
 
-Sprite Stone::getSprite() { //получить спрайт свитка 
+Sprite Stone::getSprite() { //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ 
 
-	return sprite;// получаем спрайт свитка
+	return sprite;// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 
+}
+void Stone::setSpeedY(float speed) {
+	speedY = speed;
+}
+void Stone::update() {
+	sprite.move(0, speedY);
+	position = sprite.getPosition();
+	if (position.y > WINDOW_HEIGHT)
+	{
+		position.y = 0;
+		setPosition(Vector2f(position.x, position.y));
+	}
+	
 }

@@ -1,10 +1,10 @@
 #pragma once
-
 #include <SFML/Graphics.hpp>
 
 #include "Mage.h"
+#include "Stone.h"
 
-#include "Scroll.h"//подключаем заголовочный файл свитка 
+#include "Scroll.h"//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ 
 
 using namespace sf;
 
@@ -12,9 +12,10 @@ const int WINDOW_WIDTH = 1260;
 
 const int WINDOW_HEIGHT = 720;
 
-const int WIDTH_MAP = 21;//размер карты ширина
+const int WIDTH_MAP = 21;//пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 
-const int HEIGHT_MAP = 12;//размер карты высота 
+const int HEIGHT_MAP = 12;//пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ 
+
 
 class Map {
 public:
@@ -56,15 +57,15 @@ private:
 
 	};
 
-	Mage* mage;// указатель на объект мага 
+	Mage* mage;// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ 
 
-	Scroll* scroll;// указатель на объект свитка 
+	Scroll* scroll;// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ 
 
 	Image mapImage;
 
 	Texture mapTexture;
 
 	Sprite mapSprite;
-
+	Stone* stone[10];
 	void init();
 };

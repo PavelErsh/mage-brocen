@@ -1,24 +1,30 @@
 #include "Map.h"
+#include <list>
+#include "Stone.cpp"
 
+
+
+Map::Map() {
+	init();
+}
 void Map::init() {
 
-	mapImage.loadFromFile("images/textures.png");//картинка карты 
+	mapImage.loadFromFile("images/textures.png");//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ 
 
-	mapTexture.loadFromImage(mapImage);//загружаем текстуру 
+	mapTexture.loadFromImage(mapImage);//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ 
 
-	mapSprite.setTexture(mapTexture);//загружаем спрайт
+	mapSprite.setTexture(mapTexture);//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 
 	mage = new Mage();
 
-	scroll = new Scroll(Vector2f(100, 100));//создаём указатель на объект свитка
+	scroll = new Scroll(Vector2f(100, 100));//пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+	for (int i = 0; i < 10; i++) { 
+  		float x = i * (WINDOW_WIDTH - 60 )/10 + 60; 
+  		float y = 0; 
+  		stone[i] = new Stone(Vector2f(x, y)); 
+ 	}
 
 }
-
-Map::Map() {
-
-	init();
-}
-
 void Map::update() {
 
 	mage->update();
@@ -67,7 +73,7 @@ void Map::draw(RenderWindow& window) {
 		}
 
 	}
-	window.draw(scroll->getSprite());//отрисовка свитка
+	window.draw(scroll->getSprite());//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 
-	window.draw(mage->getSprite());// отрисовка мага
+	window.draw(mage->getSprite());// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
 }
